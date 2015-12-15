@@ -7,6 +7,11 @@ function historyTest() {
 	},
 	function(historyItems) {
 		console.log(historyItems);
+		for (var i = 0; i < historyItems.length; i++) {
+			var url = historyItems[i].url;
+			console.log(url);
+			chrome.history.getVisits({url: url}, function(url) {console.log(url);});
+		};
 	});
 }
 
